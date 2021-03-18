@@ -9,7 +9,7 @@ import re
 class Student:
     def __init__(self, name: str, group_number: str, grades: list):
         self.name = name
-        self.group_number = group_number,
+        self.group_number = group_number
         self.grades = grades
 
     regular_name = '[А-Я][а-я]{1,20}\s[А-Я]\.[А-Я]\.'
@@ -43,7 +43,7 @@ class Student:
 
     @grades.setter
     def grades(self, value):
-        if isinstance(value, list) and len(self._grades) == 5:
+        if isinstance(value, list) and len(value) == 5:
             self._grades = value
         else:
             raise ValueError('grades должен быть типом данных list с длиной 5')
@@ -66,7 +66,7 @@ def sort_by_average_score():
 
 def show_good_students():
     for j in students:
-        if [1, 2, 3] not in j.grades:
+        if (1, 2, 3) not in j.grades:
             print(f"{j.name}")
 
 
@@ -75,8 +75,7 @@ students = []
 if __name__ == '__main__':
     for i in range(0, 4):
         students_name = input(f'Введите для {i+1}-го ученика ФИО: ')
-        students_group = input(f"Введите для {i+1}-го ученика группу:")
-        print(students_group)
+        students_group = input(f"Введите для {i+1}-го ученика группу: ")
         students_grades = [int(input(f'Введите {x+1}-ую оценку от 1 до 5: ')) for x in range(0, 5)]
         students.append(Student(students_name, students_group, students_grades))
 
